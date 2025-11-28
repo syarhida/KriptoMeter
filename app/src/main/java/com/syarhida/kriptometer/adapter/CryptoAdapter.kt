@@ -27,7 +27,11 @@ class CryptoAdapter : ListAdapter<Crypto, CryptoAdapter.CryptoViewHolder>(Crypto
     class CryptoViewHolder(private val binding: ItemCryptoBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        private val decimalFormat = DecimalFormat("#,##0.00")
+        private val decimalFormatUSD = DecimalFormat("#,##0.00")
+        private val decimalFormatIDR = DecimalFormat("#,###")
+        
+        // Rate konversi USD ke IDR (update sesuai kurs terkini)
+        private val USD_TO_IDR_RATE = 15700.0
 
         fun bind(crypto: Crypto) {
             binding.apply {
@@ -35,16 +39,23 @@ class CryptoAdapter : ListAdapter<Crypto, CryptoAdapter.CryptoViewHolder>(Crypto
                 textName.text = crypto.name
                 textSymbol.text = crypto.symbol
                 
-                // Format price
+                // Format price USD and IDR
                 try {
-                    val price = crypto.price_usd.toDoubleOrNull()
-                    if (price != null) {
-                        textPrice.text = "$${decimalFormat.format(price)}"
+                    val priceUSD = crypto.price_usd.toDoubleOrNull()
+                    if (priceUSD != null) {
+                        // Display USD price
+                        textPrice.text = "$${decimalFormatUSD.format(priceUSD)}"
+                        
+                        // Calculate and display IDR price
+                        val priceIDR = priceUSD * USD_TO_IDR_RATE
+                        textPriceIdr.text = "Rp ${decimalFormatIDR.format(priceIDR)}"
                     } else {
                         textPrice.text = "$${crypto.price_usd}"
+                        textPriceIdr.text = "Rp -"
                     }
                 } catch (e: Exception) {
                     textPrice.text = "$${crypto.price_usd}"
+                    textPriceIdr.text = "Rp -"
                 }
             }
         }

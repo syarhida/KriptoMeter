@@ -31,9 +31,9 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:text="1" />
 
-        <!-- Name -->
+        <!-- Symbol (Primary - di atas) -->
         <TextView
-            android:id="@+id/textName"
+            android:id="@+id/textSymbol"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -46,24 +46,26 @@
             app:layout_constraintEnd_toStartOf="@id/textPrice"
             app:layout_constraintStart_toEndOf="@id/textRank"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="Bitcoin" />
+            tools:text="BTC" />
 
-        <!-- Symbol -->
+        <!-- Name (Secondary - di bawah) -->
         <TextView
-            android:id="@+id/textSymbol"
+            android:id="@+id/textName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="2dp"
             android:layout_marginEnd="8dp"
+            android:ellipsize="end"
+            android:maxLines="1"
             android:textColor="@color/text_secondary"
-            android:textSize="12sp"
+            android:textSize="11sp"
             app:layout_constraintEnd_toStartOf="@id/textPrice"
             app:layout_constraintStart_toEndOf="@id/textRank"
-            app:layout_constraintTop_toBottomOf="@id/textName"
-            tools:text="BTC" />
+            app:layout_constraintTop_toBottomOf="@id/textSymbol"
+            tools:text="Bitcoin" />
 
-        <!-- Price -->
+        <!-- Price USD -->
         <TextView
             android:id="@+id/textPrice"
             android:layout_width="wrap_content"
@@ -71,10 +73,24 @@
             android:textColor="@color/primary"
             android:textSize="20sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/textPriceIdr"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed"
             tools:text="$45,234.56" />
+
+        <!-- Price IDR -->
+        <TextView
+            android:id="@+id/textPriceIdr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:textColor="@color/text_secondary"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textPrice"
+            tools:text="Rp 715.223.456" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
