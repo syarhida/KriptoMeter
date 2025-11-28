@@ -16,6 +16,12 @@
         android:theme="@style/Theme.KriptoMeter"
         android:usesCleartextTraffic="false"
         tools:targetApi="31">
+        
+        <!-- Preloaded Google Fonts -->
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+        
         <activity
             android:name=".MainActivity"
             android:exported="true"

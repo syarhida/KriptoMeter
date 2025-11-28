@@ -32,10 +32,15 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupToolbar() {
         setSupportActionBar(binding.toolbar)
+        // Custom centered title with Silkscreen font already set in XML
+        supportActionBar?.setDisplayShowTitleEnabled(false)
     }
 
     private fun setupRecyclerView() {
-        adapter = CryptoAdapter()
+        adapter = CryptoAdapter {
+            // Handle load more click
+            viewModel.loadMoreData()
+        }
         binding.recyclerView.apply {
             layoutManager = LinearLayoutManager(this@MainActivity)
             adapter = this@MainActivity.adapter
@@ -46,13 +51,13 @@ class MainActivity : AppCompatActivity() {
     private fun setupViewModel() {
         viewModel = ViewModelProvider(this)[CryptoViewModel::class.java]
 
-        // Observe crypto list
-        viewModel.cryptoList.observe(this) { cryptoList ->
-            if (cryptoList.isNullOrEmpty()) {
+        // Observe display list
+        viewModel.displayList.observe(this) { displayList ->
+            if (displayList.isNullOrEmpty()) {
                 showEmptyState()
             } else {
                 hideEmptyState()
-                adapter.submitList(cryptoList)
+                adapter.submitList(displayList)
             }
         }
 

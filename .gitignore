@@ -31,3 +31,7 @@ google-services.json
 
 # Android Profiling
 *.hprof
+
+# Ignore old webp launcher icons (using PNG instead)
+app/src/main/res/mipmap-*/ic_launcher.webp
+app/src/main/res/mipmap-*/ic_launcher_round.webp

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Placeholder icon untuk crypto tanpa icon -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="200dp"
+    android:height="200dp"
+    android:viewportWidth="200"
+    android:viewportHeight="200">
+    
+    <!-- Background circle -->
+    <path
+        android:fillColor="@color/card_surface"
+        android:pathData="M100,100m-100,0a100,100 0,1 1,200 0a100,100 0,1 1,-200 0" />
+    
+    <!-- Question mark or coin symbol -->
+    <path
+        android:fillColor="@color/text_secondary"
+        android:pathData="M100,50
+                         Q120,50 120,70
+                         Q120,85 100,95
+                         L100,110
+                         M100,130
+                         L100,140" 
+        android:strokeWidth="12"
+        android:strokeColor="@color/text_secondary"
+        android:strokeLineCap="round" />
+    
+</vector>
+

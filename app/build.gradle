@@ -28,6 +28,11 @@ android {
         viewBinding true
     }
     
+    aaptOptions {
+        noCompress 'png'
+        cruncherEnabled false
+    }
+    
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
