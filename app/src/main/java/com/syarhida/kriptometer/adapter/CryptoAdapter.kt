@@ -1,12 +1,20 @@
 package com.syarhida.kriptometer.adapter
 
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.graphics.BitmapShader
+import android.graphics.Canvas
+import android.graphics.Paint
+import android.graphics.Shader
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.syarhida.kriptometer.R
 import com.syarhida.kriptometer.databinding.ItemCryptoBinding
 import com.syarhida.kriptometer.model.Crypto
+import java.io.IOException
 import java.text.DecimalFormat
 
 class CryptoAdapter : ListAdapter<Crypto, CryptoAdapter.CryptoViewHolder>(CryptoDiffCallback()) {
@@ -39,6 +47,9 @@ class CryptoAdapter : ListAdapter<Crypto, CryptoAdapter.CryptoViewHolder>(Crypto
                 textName.text = crypto.name
                 textSymbol.text = crypto.symbol
                 
+                // Load crypto icon from assets
+                loadCryptoIcon(crypto.symbol)
+                
                 // Format price USD and IDR
                 try {
                     val priceUSD = crypto.price_usd.toDoubleOrNull()
@@ -58,6 +69,37 @@ class CryptoAdapter : ListAdapter<Crypto, CryptoAdapter.CryptoViewHolder>(Crypto
                     textPriceIdr.text = "Rp -"
                 }
             }
+        }
+        
+        private fun loadCryptoIcon(symbol: String) {
+            try {
+                // Try to load from assets/img/{SYMBOL}.png
+                val inputStream = binding.root.context.assets.open("img/${symbol}.png")
+                val bitmap = BitmapFactory.decodeStream(inputStream)
+                inputStream.close()
+                
+                // Convert to circular bitmap
+                val circularBitmap = getCircularBitmap(bitmap)
+                binding.imageCryptoIcon.setImageBitmap(circularBitmap)
+            } catch (e: IOException) {
+                // If image not found, use default launcher icon
+                binding.imageCryptoIcon.setImageResource(R.mipmap.ic_launcher)
+            }
+        }
+        
+        private fun getCircularBitmap(bitmap: Bitmap): Bitmap {
+            val size = Math.min(bitmap.width, bitmap.height)
+            val output = Bitmap.createBitmap(size, size, Bitmap.Config.ARGB_8888)
+            
+            val canvas = Canvas(output)
+            val paint = Paint()
+            paint.isAntiAlias = true
+            paint.shader = BitmapShader(bitmap, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP)
+            
+            val radius = size / 2f
+            canvas.drawCircle(radius, radius, radius, paint)
+            
+            return output
         }
     }
 
