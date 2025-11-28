@@ -2,17 +2,20 @@
 
 Aplikasi Android untuk menampilkan informasi cryptocurrency real-time.
 
-## Fitur
+## 📸 Preview
+<p>
+  <img src="assets/preview/preview-1.jpeg" alt="Preview 1" width="30%" style="margin-right: 5px;">
+  <img src="assets/preview/preview-2.jpeg" alt="Preview 2" width="30%" style="margin-right: 5px;">
+</p>
 
-- 📊 Menampilkan daftar cryptocurrency dengan data real-time
-- 🪙 Icon cryptocurrency dengan circular border
-- 💰 Informasi harga dalam USD dan Rupiah
-- 📈 Indikator perubahan harga 24 jam dengan color coding
-- 🔄 Pull-to-refresh untuk update data
-- 📄 Pagination (load 20 item per halaman, maksimal 100)
-- 🌙 Dark theme dengan Material Design 3
+## 🚀 Fitur
 
-## Teknologi
+- 📊 Daftar Cryptocurrency Real-time: Menampilkan rank, nama, symbol, harga USD, dan harga IDR dari 100 cryptocurrency teratas.
+- 📈 Indikator Perubahan Harga: Color coding hijau untuk kenaikan dan merah untuk penurunan harga dalam 24 jam.
+- 🪙 Icon Cryptocurrency: Setiap coin ditampilkan dengan icon circular yang elegan.
+- 🌙 Dark Theme Modern: Menggunakan Material Design 3.
+
+## 🛠️ Teknologi
 
 - **Language**: Kotlin
 - **Architecture**: MVVM
@@ -22,7 +25,7 @@ Aplikasi Android untuk menampilkan informasi cryptocurrency real-time.
 - **Min SDK**: 24 (Android 7.0)
 - **Target SDK**: 34 (Android 14)
 
-## Struktur Project
+## 📦 Struktur Project
 
 ```
 com.syarhida.kriptometer/
@@ -39,10 +42,13 @@ com.syarhida.kriptometer/
 └── MainActivity.kt
 ```
 
-## API
+## 🌐 API
 
-API Endpoint: https://api.coinlore.net/api/tickers/
+API Endpoint: 
+```
+https://api.coinlore.net/api/tickers/
+```
 
-## Lisensi
+## 📝 Lisensi
 
-MIT License
+Project ini dibuat untuk keperluan Tugas 3 Mata Kuliah Pemrograman Berbasis Piranti Bergerak.
