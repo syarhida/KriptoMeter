@@ -185,8 +185,8 @@ class CryptoAdapter(
                         val circularBitmap = getCircularBitmap(bitmap)
                         binding.imageCryptoIcon.setImageBitmap(circularBitmap)
                     } catch (e2: IOException) {
-                        // Ultimate fallback to placeholder drawable
-                        binding.imageCryptoIcon.setImageResource(R.drawable.noicon_placeholder)
+                        // Ultimate fallback to launcher icon
+                        binding.imageCryptoIcon.setImageResource(R.mipmap.ic_launcher)
                     }
                 }
             }
