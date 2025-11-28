@@ -1,20 +1,27 @@
 package com.syarhida.kriptometer
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
+import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.GravityCompat
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.navigation.NavigationView
 import com.syarhida.kriptometer.adapter.CryptoAdapter
 import com.syarhida.kriptometer.databinding.ActivityMainBinding
 import com.syarhida.kriptometer.viewmodel.CryptoViewModel
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var viewModel: CryptoViewModel
     private lateinit var adapter: CryptoAdapter
+    private lateinit var drawerToggle: ActionBarDrawerToggle
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,6 +41,38 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(binding.toolbar)
         // Custom centered title with Silkscreen font already set in XML
         supportActionBar?.setDisplayShowTitleEnabled(false)
+        
+        // Setup drawer toggle
+        drawerToggle = ActionBarDrawerToggle(
+            this,
+            binding.drawerLayout,
+            binding.toolbar,
+            R.string.app_name,
+            R.string.app_name
+        )
+        binding.drawerLayout.addDrawerListener(drawerToggle)
+        drawerToggle.syncState()
+        
+        // Set drawer toggle icon color
+        drawerToggle.drawerArrowDrawable.color = getColor(R.color.text_primary)
+        
+        // Setup navigation view
+        binding.navigationView.setNavigationItemSelectedListener(this)
+        
+        // Inflate menu for toolbar (refresh icon)
+        binding.toolbar.inflateMenu(R.menu.toolbar_menu)
+        binding.toolbar.setOnMenuItemClickListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.action_refresh -> {
+                    viewModel.fetchCryptoData()
+                    true
+                }
+                else -> false
+            }
+        }
+        
+        // Set toolbar menu icons tint
+        binding.toolbar.overflowIcon?.setTint(getColor(R.color.text_primary))
     }
 
     private fun setupRecyclerView() {
@@ -99,5 +138,25 @@ class MainActivity : AppCompatActivity() {
     private fun hideEmptyState() {
         binding.textEmpty.visibility = View.GONE
         binding.recyclerView.visibility = View.VISIBLE
+    }
+    
+    override fun onNavigationItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.nav_github -> {
+                // Open GitHub link
+                val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/syarhida/KriptoMeter"))
+                startActivity(intent)
+            }
+        }
+        binding.drawerLayout.closeDrawer(GravityCompat.START)
+        return true
+    }
+    
+    override fun onBackPressed() {
+        if (binding.drawerLayout.isDrawerOpen(GravityCompat.START)) {
+            binding.drawerLayout.closeDrawer(GravityCompat.START)
+        } else {
+            super.onBackPressed()
+        }
     }
 }

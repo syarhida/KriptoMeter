@@ -2,6 +2,9 @@
 <resources>
     <string name="app_name">KriptoMeter</string>
     <string name="toolbar_title">KriptoMeter</string>
+    <string name="app_subtitle">Pantau Harga Koin Kripto Favoritmu</string>
+    <string name="author_label">oleh</string>
+    <string name="author_name">Syarif Hidayat</string>
     <string name="loading">Memuat data…</string>
     <string name="error_message">Gagal memuat data. Coba lagi.</string>
     <string name="empty_state">Tidak ada data tersedia</string>

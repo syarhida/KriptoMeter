@@ -57,9 +57,11 @@
             android:textColor="@color/text_primary"
             android:textSize="16sp"
             android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/textName"
             app:layout_constraintEnd_toStartOf="@id/textChange24h"
             app:layout_constraintStart_toEndOf="@id/imageCryptoIcon"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toTopOf="@id/imageCryptoIcon"
+            app:layout_constraintVertical_chainStyle="packed"
             tools:text="BTC" />
 
         <!-- Name (Secondary - di bawah) -->
@@ -68,12 +70,13 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="2dp"
             android:layout_marginEnd="8dp"
             android:ellipsize="end"
             android:maxLines="1"
             android:textColor="@color/text_secondary"
             android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@id/imageCryptoIcon"
             app:layout_constraintEnd_toStartOf="@id/textChange24h"
             app:layout_constraintStart_toEndOf="@id/imageCryptoIcon"
             app:layout_constraintTop_toBottomOf="@id/textSymbol"

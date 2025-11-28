@@ -2,6 +2,16 @@
 
 Aplikasi Android untuk menampilkan informasi cryptocurrency real-time.
 
+## Fitur
+
+- 📊 Menampilkan daftar cryptocurrency dengan data real-time
+- 🪙 Icon cryptocurrency dengan circular border
+- 💰 Informasi harga dalam USD dan Rupiah
+- 📈 Indikator perubahan harga 24 jam dengan color coding
+- 🔄 Pull-to-refresh untuk update data
+- 📄 Pagination (load 20 item per halaman, maksimal 100)
+- 🌙 Dark theme dengan Material Design 3
+
 ## Teknologi
 
 - **Language**: Kotlin

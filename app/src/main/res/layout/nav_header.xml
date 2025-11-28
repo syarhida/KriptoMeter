@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="300dp"
+    android:background="@color/card_surface"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <ImageView
+        android:id="@+id/navHeaderIcon"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/logo" />
+
+    <TextView
+        android:id="@+id/navHeaderTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/silkscreen"
+        android:text="@string/app_name"
+        android:textColor="@color/text_primary"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/navHeaderSubtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="@string/app_subtitle"
+        android:textColor="@color/text_secondary"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/navHeaderAuthor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/author_label"
+        android:textColor="@color/text_secondary"
+        android:textSize="11sp" />
+
+    <TextView
+        android:id="@+id/navHeaderAuthorName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:text="@string/author_name"
+        android:textColor="@color/text_primary"
+        android:textSize="14sp"
+        android:textStyle="bold" />
+
+</LinearLayout>
+
