@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">KriptoMeter</string>
+    <string name="toolbar_title">KriptoMeter</string>
+    <string name="loading">Memuat data…</string>
+    <string name="error_message">Gagal memuat data. Coba lagi.</string>
+    <string name="empty_state">Tidak ada data tersedia</string>
+    <string name="price_label">Harga: $%s</string>
+    <string name="rank_label">Peringkat %s</string>
+    <string name="retry">Coba Lagi</string>
+</resources>
