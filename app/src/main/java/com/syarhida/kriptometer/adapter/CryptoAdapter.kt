@@ -74,7 +74,7 @@ class CryptoAdapter(
         private val decimalFormatIDR = DecimalFormat("#,###")
         
         // Rate konversi USD ke IDR (update sesuai kurs terkini)
-        private val USD_TO_IDR_RATE = 15700.0
+        private val USD_TO_IDR_RATE = 16650.0
 
         fun bind(crypto: Crypto) {
             binding.apply {
