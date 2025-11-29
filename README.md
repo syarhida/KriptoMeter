@@ -8,6 +8,12 @@ Aplikasi Android untuk menampilkan informasi cryptocurrency real-time.
   <img src="assets/preview/preview-2.jpeg" alt="Preview 2" width="30%" style="margin-right: 5px;">
 </p>
 
+## ⬇️ Download
+
+Initial release (v1.0) sudah dapat di unduh
+
+[![GitHub release (v1.0.1)](https://img.shields.io/badge/Download-v1.0.0-0077c9?style=for-the-badge&logo=android)](https://github.com/syarhida/KriptoMeter/releases/tag/v1.0.1)
+
 ## 🚀 Fitur
 
 - 📊 Daftar Cryptocurrency Real-time: Menampilkan rank, nama, symbol, harga USD, dan harga IDR dari 100 cryptocurrency teratas.
